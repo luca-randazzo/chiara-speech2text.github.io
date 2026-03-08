@@ -158,8 +158,8 @@ body {
 }
 
 #addtl-video {
-    width: 100%;
-    /* max-width: 750px; */
+    /*width: 100%;*/
+    max-width: 1000px;
     margin-top: 0px;
     margin-bottom: 10px;
     border-radius: 15px;

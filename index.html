@@ -136,7 +136,24 @@
 
             <h2> <b>Demos</b> </h2>
             <p class="paragraph add-top-padding">
-                ...
+                <h3> <b>Videos</b> </h3>
+                <video style="max-height: 600px" autobuffer controls>
+                    <source id="mp4" src="assets/video_keyboard2.mp4" type="video/mp4">
+                </video>
+
+                <h3> <b>Screenshots</b> </h3>
+                <table class="demo-table">
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                    </tr>
+                    <tr>
+                        <td>Item 1</td>
+                        <td>Item 2</td>
+                        <td>Item 3</td>
+                    </tr>
+                </table>
             </p>
 
             <h1> <b>System description</b> </h1>
@@ -189,19 +206,130 @@
             </p>
 
             <h2> <b>Models fine-tuning process</b> </h2>
+            The diagram below shows a simplified flow of how the models were fine-tuned.
             <div class="base-row add-top-padding">
                 <img id="main-img" src="assets/diagram_fine-tuning-dark.png" alt="Deployment diagram for chiara-speech2text">
             </div>
 
-            <h2> <b>Keyboard-use sequence diagramo</b> </h2>
+            <h2> <b>Keyboard-use sequence diagram</b> </h2>
+            The diagram below shows a seuqence diagram of how the keyboard can be used to generate transcripts.
             <div class="base-row add-top-padding">
                 <img id="main-img" src="assets/diagram_keyboard-sequence-dark.png" alt="Deployment diagram for chiara-speech2text">
             </div>
 
             <h2> <b>Deployment diagram</b> </h2>
+            The diagram below shows how the different software modules are deployed.
             <div class="base-row add-top-padding">
                 <img id="main-img" src="assets/diagram_deployment-dark.png" alt="Deployment diagram for chiara-speech2text">
             </div>
+
+            <h1> <b>Results</b> </h1>
+            <p class="paragraph add-top-padding">
+                The graph below shows the WER for the fine-tuned (left) and standard / vanilla (right) Whisper models.
+                <div class="base-row add-top-padding">
+                    <img id="main-img" src="assets/results_wer.png" alt="Results WER chiara-speech2text">
+                </div>
+
+                The snippet below shows a comparison of the transcripts between fine-tuned and vanilla (standard. nont fine-tuned) models, across different recordings (entries). Each entry:
+                <ul>
+                    <li>is enclosed with <span class="code-font">{}</span></li>
+                    <li>contains the following entries:
+                        <ul>
+                            <li><span class="code-font">truth</span>: the real word / phrase pronounced by Chiara (manually labeled by Luca)</li>
+                            <li><span class="code-font">whisper-large-v3-turbo_fine-tuned</span>: the output from the fine-tuned model</li>
+                            <li><span class="code-font">whisper-large-v3-turbo_vanilla</span>: the output from the vanilla model</li>
+                        </ul>  
+                    </li>
+                </ul>
+
+                <pre id="codecell0">
+                {
+                    "                            truth": "zia perché",
+                    "whisper-large-v3-turbo_fine-tuned": "zia perché",
+                    "whisper-large-v3-turbo_vanilla   ": " perché"
+                },
+                {
+                    "                            truth": "perché mi hai mandato questo video",
+                    "whisper-large-v3-turbo_fine-tuned": "perché mi hai mandato questo video",
+                    "whisper-large-v3-turbo_vanilla   ": " Piki mi mando un altro video"
+                },
+                {
+                    "                            truth": "che cosa mi vuoi comunicare",
+                    "whisper-large-v3-turbo_fine-tuned": "che cosa che cosa mi vuoi comunicare",
+                    "whisper-large-v3-turbo_vanilla   ": " Che cosa mi vuoi comunicare?"
+                },
+                {
+                    "                            truth": "zia mi puoi mandare solo video che si vedono con",
+                    "whisper-large-v3-turbo_fine-tuned": "zia mi puoi mi puoi mandare solo vediamo che ci vediamo con",
+                    "whisper-large-v3-turbo_vanilla   ": " Dìa mi puoi andare a me, mi puoi andare a te lo video che ti vedo con me."
+                },
+                {
+                    "                            truth": "youtube",
+                    "whisper-large-v3-turbo_fine-tuned": "i ho giusto",
+                    "whisper-large-v3-turbo_vanilla   ": " Ehi ehi uai uai uai uai uai tu..."
+                },
+                {
+                    "                            truth": "youtube",
+                    "whisper-large-v3-turbo_fine-tuned": "youtube",
+                    "whisper-large-v3-turbo_vanilla   ": " YouTube"
+                },
+                {
+                    "                            truth": "il programma della musica",
+                    "whisper-large-v3-turbo_fine-tuned": "il progresso della musica",
+                    "whisper-large-v3-turbo_vanilla   ": " Ippocampo della moptica!"
+                },
+                {
+                    "                            truth": "io questo programma non ce l'ho",
+                    "whisper-large-v3-turbo_fine-tuned": "io questo programma non ce l ho",
+                    "whisper-large-v3-turbo_vanilla   ": " io io questo punto non è... non... non è..."
+                },
+                {
+                    "                            truth": "perché io altri programmi non ne ho",
+                    "whisper-large-v3-turbo_fine-tuned": "perché io altri programmi non ce lo",
+                    "whisper-large-v3-turbo_vanilla   ": " Sì, perché io ho fatto, non mi non mi non mi non mi non mi non"
+                },
+                {
+                    "                            truth": "ok zia a più tardi",
+                    "whisper-large-v3-turbo_fine-tuned": "ok ok zia più tardi",
+                    "whisper-large-v3-turbo_vanilla   ": " ok ok ok ok ok ok ok ok ok ok ok ok ok ok ok"
+                },
+                {
+                    "                            truth": "ok zia a dopo",
+                    "whisper-large-v3-turbo_fine-tuned": "ok zia dopo",
+                    "whisper-large-v3-turbo_vanilla   ": " che già bubbo"
+                },
+                {
+                    "                            truth": "alessia studia ancora un pochino dopo te ne vai a casa",
+                    "whisper-large-v3-turbo_fine-tuned": "alessia studia ancora un pochino dopo te la veri a casa",
+                    "whisper-large-v3-turbo_vanilla   ": " Arretta, tu be' angon po' qui ne vanno fu, tervai a capo."
+                },
+                {
+                    "                            truth": "dalla foto si vede che sei stanca",
+                    "whisper-large-v3-turbo_fine-tuned": "da una volta ti vedi che sei stancata",
+                    "whisper-large-v3-turbo_vanilla   ": " Non lo posso dire che ti ti ti ti ti ti ti ti ti"
+                },
+                {
+                    "                            truth": "ok alessia a più tardi",
+                    "whisper-large-v3-turbo_fine-tuned": "ok alessia a più tardi",
+                    "whisper-large-v3-turbo_vanilla   ": " Ok, è l'epia, allora, più bella, più bella, più bella. Guarda che belli, le ho fatti farà chiare la settimana scorsa, se"
+                },
+                {
+                    "                            truth": "dalla foto si vede che sei sfinita",
+                    "whisper-large-v3-turbo_fine-tuned": "della foto ti vede che sei finita",
+                    "whisper-large-v3-turbo_vanilla   ": " Dalla foto ti vedi che te è in verità."
+                },
+                {
+                    "                            truth": "hai capito",
+                    "whisper-large-v3-turbo_fine-tuned": "hai capito",
+                    "whisper-large-v3-turbo_vanilla   ": " Aller copito!"
+                },
+                {
+                    "                            truth": "luca ora io sono disponibile",
+                    "whisper-large-v3-turbo_fine-tuned": "luca ora io sono disponibile",
+                    "whisper-large-v3-turbo_vanilla   ": " Ora si"
+                }
+                </pre>
+            </p>
         </div>        
 
         <!-- footer -->
