@@ -14,15 +14,14 @@
     <meta charset="utf-8" />
     <title>chiara-speech2text</title>
 
-    <!-- TODO double check these are updated -->
     <!-- Website Metadata -->
-    <meta content="A Modular Toolkit for Robot Kinematic Optimization" name="description" />
-    <meta content="PyRoki: A Modular Toolkit for Robot Kinematic Optimization" property="og:title" />
-    <meta content="A Modular Toolkit for Robot Kinematic Optimization" property="og:description" />
-    <meta content="http://www.pyroki-toolkit.github.io/data/preview_card.jpg" property="og:image" />
-    <meta content="PyRoki: A Modular Toolkit for Robot Kinematic Optimization" property="twitter:title" />
-    <meta content="A Modular Toolkit for Robot Kinematic Optimization" property="twitter:description" />
-    <meta content="http://www.pyroki-toolkit.github.io/data/preview_card.jpg" property="twitter:image" />
+    <meta content="Automatic Speech Recognition (ASR) tools for users with atypical speech." name="description" />
+    <meta content="chiara-speech2text" property="og:title" />
+    <meta content="Automatic Speech Recognition (ASR) tools for users with atypical speech." property="og:description" />
+    <meta content="https://chiara-speech2text.github.io/assets/results_wer.png" property="og:image" />
+    <meta content="chiara-speech2text" property="twitter:title" />
+    <meta content="Automatic Speech Recognition (ASR) tools for users with atypical speech." property="twitter:description" />
+    <meta content="https://chiara-speech2text.github.io/assets/results_wer.png" property="twitter:image" />
     <meta property="og:type" content="website" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
@@ -81,7 +80,7 @@
                     justify-content: center;
                     gap: 0.75em;
                     flex-wrap: wrap;
-                ">
+             ">
                 <a href=" " target="_blank">
                     <button>
                         <i class="ti ti-brand-github"></i>
@@ -137,23 +136,91 @@
             <h2> <b>Demos</b> </h2>
             <p class="paragraph add-top-padding">
                 <h3> <b>Videos</b> </h3>
-                <video style="max-height: 600px" autobuffer controls>
-                    <source id="mp4" src="assets/video_keyboard2.mp4" type="video/mp4">
-                </video>
+                    Chiara demonstrating use of the keyboard
+                    <table style="margin: 0 auto;">
+                        <tr>
+                            <td>
+                                <video style="max-height: 600px" autobuffer controls>
+                                    <source id="mp4" src="assets/video_keyboard1.mp4" type="video/mp4">
+                                </video>
+                            </td>                        
+                            <td>
+                                <video style="max-height: 600px" autobuffer controls>
+                                    <source id="mp4" src="assets/video_keyboard2.mp4" type="video/mp4">
+                                </video>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    Keyboard features (recording, transcription, suggestions, etc)
+                    <br>
+                    <video style="max-width: 1000px" autobuffer controls>
+                        <source id="mp4" src="assets/video_keyboard3.mp4" type="video/mp4">
+                    </video>                    
+
+                    <br>
+                    Difference in transcription between fine-tuned and vanilla models (on the same recordings)
+                    <br>
+                    <video style="max-width: 1000px" autobuffer controls>
+                        <source id="mp4" src="assets/video_comparing-models.mp4" type="video/mp4">
+                    </video>    
+
+                    <br>
+                    Chiara recording data to train the model
+                    <br>
+                    <video style="max-width: 1000px" autobuffer controls>
+                        <source id="mp4" src="assets/video_training.mp4" type="video/mp4">
+                    </video>
 
                 <h3> <b>Screenshots</b> </h3>
-                <table class="demo-table">
-                    <tr>
-                        <th>Column 1</th>
-                        <th>Column 2</th>
-                        <th>Column 3</th>
-                    </tr>
-                    <tr>
-                        <td>Item 1</td>
-                        <td>Item 2</td>
-                        <td>Item 3</td>
-                    </tr>
-                </table>
+                    <h4> <b>Frontend</b> </h4>
+                    <table style="margin: 0 auto;">
+                        <tr>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_frontend1.png" alt="Frontend screenshot 1" style="max-height: 500px;"> <br>
+                                Frontend main page
+                            </td>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_frontend2.png" alt="Frontend screenshot 2" style="max-height: 500px;"> <br>
+                                Selection of words/phrases to train the model
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_frontend3.png" alt="Frontend screenshot 3" style="max-height: 500px;"> <br>
+                                Selection of folders with data
+                            </td>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_frontend4.png" alt="Frontend screenshot 4" style="max-height: 500px;"> <br>
+                                Listening to recordings, editing transcripts, deletion of low-quality recordings
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h4> <b>Keyboard</b> </h4>
+                    <table style="margin: 0 auto;">
+                        <tr>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_keyboard4.jpg" alt="Keyboard screenshot 3" style="max-height: 500px;"> <br>
+                                Suggestions for similar words (based on Levenshtein distance)
+                            </td>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_keyboard3.jpg" alt="Keyboard screenshot 2" style="max-height: 500px;"> <br>
+                                Keys
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_keyboard2.jpg" alt="Keyboard screenshot 1" style="max-height: 500px;"> <br>
+                                Emojis
+                            </td>
+                            <td>
+                                <img id="main-img" src="assets/screenshot_keyboard5.jpg" alt="Keyboard screenshot 4" style="max-height: 500px;"> <br>
+                                Settings
+                            </td>
+                        </tr>
+                    </table>
             </p>
 
             <h1> <b>System description</b> </h1>
@@ -236,97 +303,97 @@
                     <li>contains the following entries:
                         <ul>
                             <li><span class="code-font">truth</span>: the real word / phrase pronounced by Chiara (manually labeled by Luca)</li>
-                            <li><span class="code-font">whisper-large-v3-turbo_fine-tuned</span>: the output from the fine-tuned model</li>
-                            <li><span class="code-font">whisper-large-v3-turbo_vanilla</span>: the output from the vanilla model</li>
+                            <li><span class="code-font">fine-tuned</span>: the output from the whisper-large-v3-turbo fine-tuned model</li>
+                            <li><span class="code-font">vanilla</span>: the output from the whisper-large-v3-turbo vanilla model</li>
                         </ul>  
                     </li>
                 </ul>
 
                 <pre id="codecell0">
                 {
-                    "                            truth": "zia perché",
-                    "whisper-large-v3-turbo_fine-tuned": "zia perché",
-                    "whisper-large-v3-turbo_vanilla   ": " perché"
+                 "     truth": "zia perché",
+                 "fine-tuned": "zia perché",
+                 "vanilla   ": " perché"
                 },
                 {
-                    "                            truth": "perché mi hai mandato questo video",
-                    "whisper-large-v3-turbo_fine-tuned": "perché mi hai mandato questo video",
-                    "whisper-large-v3-turbo_vanilla   ": " Piki mi mando un altro video"
+                 "     truth": "perché mi hai mandato questo video",
+                 "fine-tuned": "perché mi hai mandato questo video",
+                 "vanilla   ": " Piki mi mando un altro video"
                 },
                 {
-                    "                            truth": "che cosa mi vuoi comunicare",
-                    "whisper-large-v3-turbo_fine-tuned": "che cosa che cosa mi vuoi comunicare",
-                    "whisper-large-v3-turbo_vanilla   ": " Che cosa mi vuoi comunicare?"
+                 "     truth": "che cosa mi vuoi comunicare",
+                 "fine-tuned": "che cosa che cosa mi vuoi comunicare",
+                 "vanilla   ": " Che cosa mi vuoi comunicare?"
                 },
                 {
-                    "                            truth": "zia mi puoi mandare solo video che si vedono con",
-                    "whisper-large-v3-turbo_fine-tuned": "zia mi puoi mi puoi mandare solo vediamo che ci vediamo con",
-                    "whisper-large-v3-turbo_vanilla   ": " Dìa mi puoi andare a me, mi puoi andare a te lo video che ti vedo con me."
+                 "     truth": "zia mi puoi mandare solo video che si vedono con",
+                 "fine-tuned": "zia mi puoi mi puoi mandare solo vediamo che ci vediamo con",
+                 "vanilla   ": " Dìa mi puoi andare a me, mi puoi andare a te lo video che ti vedo con me."
                 },
                 {
-                    "                            truth": "youtube",
-                    "whisper-large-v3-turbo_fine-tuned": "i ho giusto",
-                    "whisper-large-v3-turbo_vanilla   ": " Ehi ehi uai uai uai uai uai tu..."
+                 "     truth": "youtube",
+                 "fine-tuned": "i ho giusto",
+                 "vanilla   ": " Ehi ehi uai uai uai uai uai tu..."
                 },
                 {
-                    "                            truth": "youtube",
-                    "whisper-large-v3-turbo_fine-tuned": "youtube",
-                    "whisper-large-v3-turbo_vanilla   ": " YouTube"
+                 "     truth": "youtube",
+                 "fine-tuned": "youtube",
+                 "vanilla   ": " YouTube"
                 },
                 {
-                    "                            truth": "il programma della musica",
-                    "whisper-large-v3-turbo_fine-tuned": "il progresso della musica",
-                    "whisper-large-v3-turbo_vanilla   ": " Ippocampo della moptica!"
+                 "     truth": "il programma della musica",
+                 "fine-tuned": "il progresso della musica",
+                 "vanilla   ": " Ippocampo della moptica!"
                 },
                 {
-                    "                            truth": "io questo programma non ce l'ho",
-                    "whisper-large-v3-turbo_fine-tuned": "io questo programma non ce l ho",
-                    "whisper-large-v3-turbo_vanilla   ": " io io questo punto non è... non... non è..."
+                 "     truth": "io questo programma non ce l'ho",
+                 "fine-tuned": "io questo programma non ce l ho",
+                 "vanilla   ": " io io questo punto non è... non... non è..."
                 },
                 {
-                    "                            truth": "perché io altri programmi non ne ho",
-                    "whisper-large-v3-turbo_fine-tuned": "perché io altri programmi non ce lo",
-                    "whisper-large-v3-turbo_vanilla   ": " Sì, perché io ho fatto, non mi non mi non mi non mi non mi non"
+                 "     truth": "perché io altri programmi non ne ho",
+                 "fine-tuned": "perché io altri programmi non ce lo",
+                 "vanilla   ": " Sì, perché io ho fatto, non mi non mi non mi non mi non mi non"
                 },
                 {
-                    "                            truth": "ok zia a più tardi",
-                    "whisper-large-v3-turbo_fine-tuned": "ok ok zia più tardi",
-                    "whisper-large-v3-turbo_vanilla   ": " ok ok ok ok ok ok ok ok ok ok ok ok ok ok ok"
+                 "     truth": "ok zia a più tardi",
+                 "fine-tuned": "ok ok zia più tardi",
+                 "vanilla   ": " ok ok ok ok ok ok ok ok ok ok ok ok ok ok ok"
                 },
                 {
-                    "                            truth": "ok zia a dopo",
-                    "whisper-large-v3-turbo_fine-tuned": "ok zia dopo",
-                    "whisper-large-v3-turbo_vanilla   ": " che già bubbo"
+                 "     truth": "ok zia a dopo",
+                 "fine-tuned": "ok zia dopo",
+                 "vanilla   ": " che già bubbo"
                 },
                 {
-                    "                            truth": "alessia studia ancora un pochino dopo te ne vai a casa",
-                    "whisper-large-v3-turbo_fine-tuned": "alessia studia ancora un pochino dopo te la veri a casa",
-                    "whisper-large-v3-turbo_vanilla   ": " Arretta, tu be' angon po' qui ne vanno fu, tervai a capo."
+                 "     truth": "alessia studia ancora un pochino dopo te ne vai a casa",
+                 "fine-tuned": "alessia studia ancora un pochino dopo te la veri a casa",
+                 "vanilla   ": " Arretta, tu be' angon po' qui ne vanno fu, tervai a capo."
                 },
                 {
-                    "                            truth": "dalla foto si vede che sei stanca",
-                    "whisper-large-v3-turbo_fine-tuned": "da una volta ti vedi che sei stancata",
-                    "whisper-large-v3-turbo_vanilla   ": " Non lo posso dire che ti ti ti ti ti ti ti ti ti"
+                 "     truth": "dalla foto si vede che sei stanca",
+                 "fine-tuned": "da una volta ti vedi che sei stancata",
+                 "vanilla   ": " Non lo posso dire che ti ti ti ti ti ti ti ti ti"
                 },
                 {
-                    "                            truth": "ok alessia a più tardi",
-                    "whisper-large-v3-turbo_fine-tuned": "ok alessia a più tardi",
-                    "whisper-large-v3-turbo_vanilla   ": " Ok, è l'epia, allora, più bella, più bella, più bella. Guarda che belli, le ho fatti farà chiare la settimana scorsa, se"
+                 "     truth": "ok alessia a più tardi",
+                 "fine-tuned": "ok alessia a più tardi",
+                 "vanilla   ": " Ok, è l'epia, allora, più bella, più bella, più bella. Guarda che belli, le ho fatti farà chiare la settimana scorsa, se"
                 },
                 {
-                    "                            truth": "dalla foto si vede che sei sfinita",
-                    "whisper-large-v3-turbo_fine-tuned": "della foto ti vede che sei finita",
-                    "whisper-large-v3-turbo_vanilla   ": " Dalla foto ti vedi che te è in verità."
+                 "     truth": "dalla foto si vede che sei sfinita",
+                 "fine-tuned": "della foto ti vede che sei finita",
+                 "vanilla   ": " Dalla foto ti vedi che te è in verità."
                 },
                 {
-                    "                            truth": "hai capito",
-                    "whisper-large-v3-turbo_fine-tuned": "hai capito",
-                    "whisper-large-v3-turbo_vanilla   ": " Aller copito!"
+                 "     truth": "hai capito",
+                 "fine-tuned": "hai capito",
+                 "vanilla   ": " Aller copito!"
                 },
                 {
-                    "                            truth": "luca ora io sono disponibile",
-                    "whisper-large-v3-turbo_fine-tuned": "luca ora io sono disponibile",
-                    "whisper-large-v3-turbo_vanilla   ": " Ora si"
+                 "     truth": "luca ora io sono disponibile",
+                 "fine-tuned": "luca ora io sono disponibile",
+                 "vanilla   ": " Ora si"
                 }
                 </pre>
             </p>
