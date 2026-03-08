@@ -23,15 +23,15 @@ body {
     padding: 2em 2em;
 
     background-color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 20px;
 }
 
 .code-font {
     font-family: 'Courier New', Courier, monospace;
-    font-size: calc(1em + 2px);
+    font-size: 16;
 }
 
 .section {
@@ -57,7 +57,7 @@ body {
 .title {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #4d4d4d;
     font-size: 50px;
     line-height: 65px;
@@ -69,7 +69,7 @@ body {
 .subheader {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 25px;
     line-height: 44px;
@@ -79,7 +79,7 @@ body {
 }
 
 .tldr {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 18px;
     line-height: 24px;
@@ -108,7 +108,7 @@ body {
 }
 
 .author-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 16px;
     font-weight: 400;
@@ -120,25 +120,6 @@ body {
     display: inline-block;
     margin: 0px;
     font-size: 10px;
-}
-
-#uc-berkeley {
-    padding-top: 10px;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0px;
-    letter-spacing: 0;
-}
-
-#equal-contrib {
-    padding-top: 10px;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
 }
 
 .icon-col {
@@ -163,15 +144,14 @@ body {
 }
 
 .link-labels-text {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
 }
 
 #main-video {
-    /* height: 50%; */
-    max-height: 500px;
+    max-height: 750px;
     margin-top: 0px;
     margin-bottom: 10px;
     border-radius: 15px;
@@ -238,7 +218,7 @@ body {
 .paragraph {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 16px;
     line-height: 24px;
@@ -250,7 +230,7 @@ body {
 .paragraph-center {
     margin-top: 0px;
     /* margin-bottom: 20px; */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 16px;
     line-height: 24px;
@@ -392,7 +372,7 @@ body {
 }
 
 .thumbnail_label {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 16px;
     line-height: 20px;
@@ -562,7 +542,7 @@ body {
 }
 
 #opacity {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #3c3c3c;
     font-size: 20px;
     line-height: 20px;
@@ -968,4 +948,105 @@ label {
 
 input[type="radio"] {
     vertical-align: middle;
+}
+li {
+    font-size: 16px;
+}
+
+/* ------------------------------------------------------ */
+/* Global dark mode overrides                             */
+/* ------------------------------------------------------ */
+:root {
+    --dm-bg: #0f1115;
+    --dm-surface: #181c24;
+    --dm-surface-2: #202634;
+    --dm-text: #c8d1e1;
+    --dm-text-muted: #c8d1e1;
+    --dm-accent: #70a8ff;
+    --dm-accent-2: #8bc2ff;
+    --dm-chip: #334155;
+    --dm-chip-hover: #475569;
+}
+
+body {
+    background-color: var(--dm-bg);
+    color: var(--dm-text);
+}
+
+a:link,
+a:visited {
+    color: var(--dm-accent);
+}
+
+button {
+    background-color: var(--dm-surface-2);
+    color: var(--dm-text);
+    border: 1px solid #334155;
+}
+
+.title,
+.subheader,
+.tldr,
+.author-text,
+#uc-berkeley,
+#equal-contrib,
+.paragraph,
+.paragraph-center,
+.thumbnail_label,
+#opacity,
+.switch .labels::after,
+.switch .labels::before,
+.switcher .switcher-labels label,
+label,
+li {
+    color: var(--dm-text);
+}
+
+#main-results,
+.citation,
+.thumbnail-btn,
+.switcher,
+.image-compare img,
+.image-compare-handle i,
+.image-compare-handle::before,
+.image-compare-before>div,
+.image-compare-after>div {
+    background-color: var(--dm-surface);
+    background: var(--dm-surface);
+    color: var(--dm-text);
+}
+
+.thumbnail-btn:hover {
+    background-color: var(--dm-surface-2);
+}
+
+.teaser-slide-arrow,
+.results-slide-arrow,
+.video-btn {
+    background-color: var(--dm-chip);
+    color: var(--dm-text);
+}
+
+.teaser-slide-arrow:hover,
+.teaser-slide-arrow:focus,
+.results-slide-arrow:hover,
+.results-slide-arrow:focus,
+.video-btn:hover {
+    background-color: var(--dm-chip-hover);
+}
+
+.slider {
+    background-color: #4b5563;
+}
+
+.slider:before {
+    background-color: #f8fafc;
+}
+
+input:checked+.slider {
+    background-color: #2563eb;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2563eb;
 }
