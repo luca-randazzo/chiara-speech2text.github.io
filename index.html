@@ -105,14 +105,14 @@
             </video>
             <p style="text-align: justify;">
                 Chiara using <span class="code-font">chiara-speech2text</span> to communicate with a deaf friend. <br>
-                Before, Chiara could communicate with her only in person (because she must carefully watch Chiara’s lips speaking to understand). <br>
-                Thanks to this system, Chiara can communicate via writing with people who -otherwise- she would simply not be able to communicate with.
+                Before this system, Chiara could communicate with her only in person (because she must carefully watch Chiara’s lips speaking to understand). <br>
+                Thanks <span class="code-font">chiara-speech2text</span>, Chiara can now communicate by writing with people who -otherwise- she would not be able to communicate with.
             </p>
             <img id="main-img" src="assets/results_message.png" alt="Frontend screenshot 1" style="max-height: 500px; margin-top: 50px;"> <br>
             <p style="text-align: justify;">
                 A message Chiara sent through <span class="code-font">chiara-speech2text</span>'s Android keyboard. The message reads: <br>
                 <i>"il mio cuore e' contento quando tu mi scrivi (my heart is happy when you write me)"</i>. <br>
-                This tool enables Chiara to connect with people she loves and communicate in a way that was not possible before. 
+                <span class="code-font">chiara-speech2text</span> enables Chiara to connect with people she loves and to communicate in a way that was not possible before. 
             </p>
 
         </div>
@@ -264,7 +264,7 @@
                         <ul>
                             <li>record user's speech</li>
                             <li>send recorded audios to <span class="code-font">model-server</span> </li>
-                            <li>deploy transcript exposing a standard Android input-method (keyboard), for seamless use e.g. in Whatsapp </li>
+                            <li>deploy transcripts through a standard Android input-method (keyboard), for seamless use e.g. in Whatsapp </li>
                             <li>provide suggestions for words similar to the recognized ones (using Levenshtein distance)</li>
                         </ul>
                     </li>
@@ -301,11 +301,20 @@
 
             <h1> <b>Results</b> </h1>
             <p class="paragraph add-top-padding">
-                The graph below shows the WER for the fine-tuned (left) and standard / vanilla (right) Whisper models.
+                The graph below shows the Word error Rate (WER) for the fine-tuned (left) and standard / vanilla (right) Whisper models.
                 <div class="base-row add-top-padding">
                     <img id="main-img" src="assets/results_wer.png" alt="Results WER chiara-speech2text">
                 </div>
+            </p>
 
+            <p class="paragraph add-top-padding">
+                The graphs below show the evolution of WER during a typcial training session.
+                <div class="base-row add-top-padding">
+                    <img id="main-img" src="assets/results_training.png" alt="Results training">
+                </div>
+            </p>
+
+            <p class="paragraph add-top-padding">            
                 The snippet below shows a comparison of the transcripts between fine-tuned and vanilla (standard. nont fine-tuned) models, across different recordings (entries). Each entry:
                 <ul>
                     <li>is enclosed with <span class="code-font">{}</span></li>
