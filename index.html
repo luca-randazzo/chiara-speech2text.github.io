@@ -122,7 +122,7 @@
         <div class="desktop-text-panel" style="margin-top: 100px;">
             <h1> <b>Problem statement</b> </h1>
             <p class="paragraph add-top-padding">
-                <span class="code-font">chiara-speech2text</span> has been developed to facilitate communication of Chiara through her tablet. <br>
+                <span class="code-font">chiara-speech2text</span> has been developed to facilitate Chiara's communication through her tablet. <br>
                 Chiara is a very active girl with a passion for chatting and making new friends :) <br>
                 Unfortunately, she suffers from dysarthria and speech impairments due to cerebral palsy. She has difficulties with articulation (pronunciation), fluency (speech rate and rhythm), abnormal tone and echolalia (repetitions). <br>
                 Chiara can not write nor read, and she can only communicate via speech. She mostly communicates through voice messages, on her tablet, via Whatsapp. 
@@ -134,7 +134,7 @@
             <p class="paragraph add-top-padding">
                 <span class="code-font">chiara-speech2text</span> is a set of software tools to help Chiara communicate and to enable ASR for her (and other users with atypical speech). <br>
                 The main user interface is a custom Android keyboard, which allows to transcribe user's speech seamlessly within standard communication apps - such as Whatsapp. 
-                The keyboard allows transcription without exiting the communication app - overcoming limitations of other ASR tools (which typically require users to exit the app, visit a web-transcription-service, and copy/paste the transcription back to the communication app). <br>
+                The keyboard can transcribe speech without exiting the communication app - overcoming limitations of other ASR tools (which typically require users to exit the app, visit a web-transcription-service, and copy/paste the transcription back to the communication app). <br>
                 Beyond the keyboard itself, the system has several other software modules to enable ASR, including functionalities to:
                 <ul>
                     <li> record labeled data required to fine-tune the model (i.e. record user's speech + data cleaning and labeling functionalities) </li>
@@ -171,7 +171,7 @@
                 </video>                    
 
                 <br>
-                Difference in transcription between fine-tuned and vanilla models (on the same recordings)
+                Difference in transcription between fine-tuned and vanilla (standard, non fine-tuned) models (on the same recordings)
                 <br>
                 <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
                     <source id="mp4" src="assets/video_comparing-models.mp4" type="video/mp4">
@@ -196,7 +196,7 @@
                         </td>
                         <td>
                             <img id="main-img" src="assets/screenshot_frontend2.png" alt="Frontend screenshot 2" style="max-height: 500px;"> <br>
-                            Selection of words/phrases to train the model
+                            The frontend allows users to upload custom words/phrases - to train models to their own chosen vocabulary 
                         </td>
                     </tr>
                     <tr>
@@ -206,7 +206,7 @@
                         </td>
                         <td>
                             <img id="main-img" src="assets/screenshot_frontend4.png" alt="Frontend screenshot 4" style="max-height: 500px;"> <br>
-                            Listening to recordings, editing transcripts, deletion of low-quality recordings
+                            The frontend allows to listen to audio recordings, editing transcripts, delete low-quality data not suitable for training
                         </td>
                     </tr>
                 </table>
@@ -305,21 +305,22 @@
 
             <h1> <b>Results</b> </h1>
             <p class="paragraph add-top-padding">
-                The graph below shows the Word error Rate (WER) for the fine-tuned (left) and standard / vanilla (right) Whisper models.
+                The plot below shows a comparison of Word error Rate (WER) between fine-tuned and vanilla models.
                 <div class="base-row add-top-padding">
-                    <img id="main-img" src="assets/results_wer.png" alt="Results WER chiara-speech2text">
+                    <img id="main-img" src="assets/results_wer_bars.png" alt="Results WER chiara-speech2text">
                 </div>
+                Fine-tuned models can achieve 10-fold better WER than vanilla models when adapted to Chiara's speech.
             </p>
 
             <p class="paragraph add-top-padding">
-                The graphs below show the evolution of WER during a typcial training session.
+                The graphs below show the evolution of WER during a typical model-training session.
                 <div class="base-row add-top-padding">
                     <img id="main-img" src="assets/results_training.png" alt="Results training">
                 </div>
             </p>
 
             <p class="paragraph add-top-padding">            
-                The snippet below shows a comparison of the transcripts between fine-tuned and vanilla (standard. nont fine-tuned) models, across different recordings (entries). Each entry:
+                The snippet below shows a comparison of the transcripts between fine-tuned and vanilla models, across different recordings (entries). Each entry:
                 <ul>
                     <li>is enclosed with <span class="code-font">{}</span></li>
                     <li>contains the following entries:
@@ -424,6 +425,11 @@
         <!-- footer -->
         <footer>
             <h3 id="abstract">Credits</h3>
+                <p class="paragraph">
+                    The starting point for this project has been the:
+                    <a href="https://sites.research.google/euphonia/about/">Google Euphonia project</a>
+                </p>
+                
                 <p class="paragraph">
                     The website template is based on:
                     <a href="https://github.com/pyroki-toolkit/pyroki-toolkit.github.io">Pyroki Toolkit</a>
