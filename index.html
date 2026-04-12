@@ -190,7 +190,7 @@
                 </video>                    
 
                 <br>
-                Difference in transcription between fine-tuned and vanilla (standard, non fine-tuned) models (on the same recordings)
+                The video below shows the difference in transcription performance between the fine-tuned model and vanilla (non fine-tuned) ones
                 <br>
                 <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
                     <source id="mp4" src="assets/video_comparing-models.mp4" type="video/mp4">
@@ -224,7 +224,7 @@
                             <li>train fine-tuned voice recognition models (based on OpenAI Whisper, Nvidia Canary, Parakeet) on the recorded dataset</li>
                         </ul>                        
                     </li>
-                    <li> <span class="code-font">fine-tuned models</span> </li> binary files containing the fine-tuned models (bias, weights, architecture, etc), as output'd by <span class="code-font">model-trainer</span>
+                    <li> <span class="code-font">fine-tuned models</span>: binary files containing the fine-tuned models (bias, weights, architecture, etc), as output'd by <span class="code-font">model-trainer</span> </li> 
                     <li>
                         <span class="code-font">model-server</span> Python webserver exposing services that:
                         <ul>
@@ -255,7 +255,7 @@
             </p>
 
             <h2> <b>Models fine-tuning process</b> </h2>
-            The diagram below shows a simplified flow of how the models were fine-tuned.
+            The diagram below shows a simplified flow of how models were fine-tuned.
             <div class="base-row add-top-padding">
                 <img id="main-img" src="assets/diagram_fine-tuning-dark.png" alt="Deployment diagram for chiara-speech2text">
             </div>
