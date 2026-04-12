@@ -113,9 +113,10 @@
                 </tr>
             </table>
             <p style="text-align: justify; margin-top: 10px;">
-                Chiara using <span class="code-font">chiara-speech2text</span> to communicate with a deaf friend. <br>
-                Before this system, Chiara could communicate with her only in person (because her friend must carefully watch Chiara’s lips speaking to understand). 
-                Thanks to <span class="code-font">chiara-speech2text</span>, Chiara can now communicate with people who -otherwise- she would not be able to communicate with.
+                In the left video, Chiara uses <span class="code-font">chiara-speech2text</span> to communicate with Rosaria, a deaf friend.
+                Before this system, Chiara could communicate with her only in person (because Rosaria must carefully watch Chiara’s lips speaking to understand). <br> 
+                Thanks to <span class="code-font">chiara-speech2text</span>, Chiara can now communicate with people who -otherwise- she would not be able to communicate with. <br>
+                On the right, a visual summary of the system's working principle. 
             </p>
 
             <img id="main-img" src="assets/results_message.png" alt="Frontend screenshot 1" style="max-width: 1000px; margin-top: 50px;"> <br>
@@ -158,6 +159,8 @@
                     <li> speech transcription via a local custom Android keyboard and a remote GPU-server (that does inference exploiting the fine-tuned model) </li>
                     <li> LLM-enabled features to facilitate communication (e.g. spellchecking, provide context-aware corrections of transcripts, provide conversations-starters suggestions) </li>
                 </ul>
+                Chiara uses this system in combination with <a href="https://support.google.com/accessibility/android/answer/7349565?hl=en">Select to Speak</a> - an Android service that reads aloud the content of her screen. <br>
+                She can therefore send written messages through <span class="code-font">chiara-speech2text</span>, and read them through <span class="code-font">Android - Select to Speak</span>, enabling back and forth, written, communication.
             </p>
 
             <h2> <b>Demos</b> </h2>
@@ -454,11 +457,6 @@
                 <p class="paragraph">
                     The starting point for this project was:
                     <a href="https://sites.research.google/euphonia/about/">Google Euphonia project</a>
-                </p>
-                
-                <p class="paragraph">
-                    The website template is based on:
-                    <a href="https://github.com/pyroki-toolkit/pyroki-toolkit.github.io">Pyroki Toolkit</a>
                 </p>
         </footer>
     </div>
