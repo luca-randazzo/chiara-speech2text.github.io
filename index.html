@@ -138,7 +138,6 @@
         <div class="desktop-text-panel" style="margin-top: 100px;">
             <h1> <b>Problem statement</b> </h1>
             <p class="paragraph add-top-padding">
-                <span class="code-font">chiara-speech2text</span> has been developed to facilitate Chiara's communication through her tablet. <br>
                 Chiara is a very active girl with a passion for chatting and making new friends :) <br>
                 Unfortunately, she suffers from dysarthria and speech impairments due to cerebral palsy.
                 She has difficulties with articulation (pronunciation), fluency (speech rate and rhythm), abnormal tone and echolalia (repetitions). <br>
@@ -149,7 +148,7 @@
 
             <h1> <b>Solution</b> </h1>
             <p class="paragraph add-top-padding">
-                <span class="code-font">chiara-speech2text</span>(this repo) is a set of software tools to help Chiara (and other users with atypical speech) communicate via ASR.<br>
+                <span class="code-font">chiara-speech2text</span>(this repo) is a set of software tools to help Chiara (and other users with atypical speech) communicate via ASR on her tablet.<br>
                 The main user interface is a custom Android keyboard, which allows to transcribe user's speech seamlessly within standard communication apps - such as Whatsapp. 
                 The keyboard can transcribe speech without exiting the communication app - overcoming limitations of other ASR tools (which typically require users to exit the app, visit a web-transcription-service, and copy/paste the transcription back to the communication app). <br>
                 Beyond the keyboard itself, the system has several other software modules to enable ASR, including functionalities to:
@@ -160,7 +159,8 @@
                     <li> LLM-enabled features to facilitate communication (e.g. spellchecking, provide context-aware corrections of transcripts, provide conversations-starters suggestions) </li>
                 </ul>
                 Chiara uses this system in combination with <a href="https://support.google.com/accessibility/android/answer/7349565?hl=en">Select to Speak</a> - an Android service that reads aloud the content of her screen. <br>
-                She can therefore send written messages through <span class="code-font">chiara-speech2text</span>, and read them through <span class="code-font">Android - Select to Speak</span>, enabling back and forth, written, communication.                
+                She can therefore send written messages through <span class="code-font">chiara-speech2text</span>, and read them through <span class="code-font">Android - Select to Speak</span>, enabling back and forth, written, communication. <br>      
+                The ASR model is based on <a href="https://huggingface.co/openai/whisper-large-v3-turbo">OpenAI Whisper</a>. Given enough data from final users, any language originally supported by Whisper (e.g. German, Spanish, French, etc) could be used.
             </p>
 
             <h2> <b>Demos</b> </h2>
