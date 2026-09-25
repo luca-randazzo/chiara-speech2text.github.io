@@ -158,7 +158,7 @@
                     <li> speech transcription via a local custom Android keyboard and a remote GPU-server (that does inference exploiting the fine-tuned model) </li>
                     <li> LLM-enabled features to facilitate communication (e.g. spellchecking, provide context-aware corrections of transcripts, provide conversations-starters suggestions) </li>
                 </ul>
-                Chiara uses this system in combination with <a href="https://support.google.com/accessibility/android/answer/7349565?hl=en">Select to Speak</a> - an Android service that reads aloud the content of her screen. <br>
+                Chiara uses this system in combination with <a href="https://github.com/luca-randazzo/chiara-select2speak">chiara-select2speak</a> - an custom Android service that can read aloud the content of her screen. <br>
                 She can therefore send written messages through <span class="code-font">chiara-speech2text</span>, and read them through <span class="code-font">Android - Select to Speak</span>, enabling back and forth, written, communication. <br>      
                 The ASR model is based on <a href="https://huggingface.co/openai/whisper-large-v3-turbo">OpenAI Whisper</a>. Given enough data from final users, any language originally supported by Whisper (e.g. German, Spanish, French, etc) could be used.
             </p>
