@@ -96,7 +96,7 @@
         <div class="section base-row add-top-padding" style="margin-top: 20px;">
             <h1 class="tldr">
                 <b>TL;DR</b>:
-                <span class="code-font">chiara-speech2text</span> is a software system to enable speech2text for users with speech impairments
+                <span class="code-font">chiara-speech2text</span> is an open-source software system for speech2text in users with atypical speech
             </h1>
             
             <table style="width: 100%; margin-top: 70px;">
@@ -139,7 +139,7 @@
             <h1> <b>Problem statement</b> </h1>
             <p class="paragraph add-top-padding">
                 Chiara is a very active girl with a passion for chatting and making new friends :) <br>
-                Unfortunately, she suffers from dysarthria and speech impairments due to cerebral palsy.
+                Unfortunately, she suffers from dysarthria and atypical speech due to cerebral palsy.
                 She has difficulties with articulation (pronunciation), fluency (speech rate and rhythm), abnormal tone and echolalia (repetitions). <br>
                 Chiara can not write nor read, and she can only communicate via speech. She mostly communicates through voice messages, on her tablet, via Whatsapp. 
                 However -due to her dysarthria- people have difficulties understanding her voice messages. <br>
@@ -204,10 +204,9 @@
                 </video>
             </p>
 
-
-            <h1> <b>System description</b> </h1>
+            <h1> <b>Open-source repo</b> </h1>
             <p class="paragraph add-top-padding">
-                See the <a href="">project repository</a> for source code, technical descriptions, diagrams.
+                The open-source code and installation instructions can be found in the <a href="">project repository</a>.
             </p>
 
             <h1> <b>Results</b> </h1>
@@ -219,15 +218,12 @@
                 Fine-tuned models (adapted to Chiara's speech) can achieve ~10 times better WER than vanilla models.
             </p>
 
-            <p class="paragraph add-top-padding">
-                The graphs below show the evolution of WER during a typical model-training session.
-                <div class="base-row add-top-padding">
-                    <img id="main-img" src="assets/results_training.png" alt="Results training">
-                </div>
-            </p>
-
+            <!-- trasncripts comparison -->
             <p class="paragraph add-top-padding">            
-                The snippet below shows a comparison of the transcripts between fine-tuned and vanilla models, across different recordings (entries). Each entry:
+                The snippet below shows a comparison of the transcripts between fine-tuned and vanilla models, across different recordings (entries).
+                Fine-tuned models can trasncribe Chiara's speech way more faithfully than vanilla models.
+                
+                Each entry:
                 <ul>
                     <li>is enclosed with <span class="code-font">{}</span></li>
                     <li>contains the following properties:
@@ -328,42 +324,18 @@
                 </pre>
             </p>
 
-            <p class="paragraph add-top-padding">
-                Results can be also easily explored via the <span class="code-font">nvidia-nemo</span> software tool
-                <div class="base-row add-top-padding">
-                    <img id="main-img" src="assets/results_nemo1.png" alt="Results nemo 1">
-                    <img id="main-img" src="assets/results_nemo2.png" alt="Results nemo 2">
-                    <img id="main-img" src="assets/results_nemo3.png" alt="Results nemo 3">
-                </div>
-
-                Results can be also explored via the custom analysis tool
-                <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
-                    <source id="mp4" src="assets/video_analysis-tool.mp4" type="video/mp4">
-                </video>
-            </p>
-
-            <h2> <b>Screenshots of the system</b> </h2>
+            <h2> <b>Screenshots, videos</b> </h2>
             <p class="paragraph add-top-padding">
                 <h3> <b>Frontend</b> </h3>
                 <table style="margin: 0 auto;">
                     <tr>
                         <td>
-                            <img id="main-img" src="assets/screenshot_frontend1.png" alt="Frontend screenshot 1" style="max-height: 500px;"> <br>
-                            Frontend main page
-                        </td>
-                        <td>
                             <img id="main-img" src="assets/screenshot_frontend2.png" alt="Frontend screenshot 2" style="max-height: 500px;"> <br>
                             The frontend allows users to upload custom words/phrases - to train models to their own chosen vocabulary 
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_frontend3.png" alt="Frontend screenshot 3" style="max-height: 500px;"> <br>
-                            Selection of folders with data
-                        </td>
                         <td>
                             <img id="main-img" src="assets/screenshot_frontend4.png" alt="Frontend screenshot 4" style="max-height: 500px;"> <br>
-                            The frontend allows to listen to audio recordings, editing transcripts, delete low-quality data not suitable for training
+                            The frontend allows to curate audio recordings: listen, edit transcripts, delete low-quality data not suitable for training
                         </td>
                     </tr>
                 </table>
@@ -377,20 +349,26 @@
                         </td>
                         <td>
                             <img id="main-img" src="assets/screenshot_keyboard3.jpg" alt="Keyboard screenshot 2" style="max-height: 500px;"> <br>
-                            Keys
+                            The keyboard allows to write using normal keys
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <img id="main-img" src="assets/screenshot_keyboard2.jpg" alt="Keyboard screenshot 1" style="max-height: 500px;"> <br>
-                            Emojis
+                            The keyboard supports emojis
                         </td>
                         <td>
                             <img id="main-img" src="assets/screenshot_keyboard5.jpg" alt="Keyboard screenshot 4" style="max-height: 500px;"> <br>
-                            Settings
+                            The keyboard can be configured through settings
                         </td>
                     </tr>
                 </table>
+
+                <h3> <b>Analysis tool</b> </h3>
+                Performance of the system (e.g. WER) can be explored via a custom analysis tool
+                <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
+                    <source id="mp4" src="assets/video_analysis-tool.mp4" type="video/mp4">
+                </video>
             </p>            
         </div>
     </div>
