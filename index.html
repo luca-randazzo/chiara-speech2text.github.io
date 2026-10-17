@@ -57,7 +57,7 @@
             <div class="base-row">
                 <div style="padding: 2px;">
                     <h1 class="subheader">
-                        Automatic Speech Recognition (ASR) for users with atypical speech
+                        Open-source speech2text system <br> for users with atypical speech
                     </h1>
                 </div>
             </div>
@@ -66,21 +66,15 @@
             <div class="base-row">
                 <!-- Refer to how author wrapping is performed in https://brentyi.github.io/tilted/ -->
                 <div style="padding: 2px;">
-                    <a href="https://github.com/luca-randazzo" target="_blank" class="author-text">
-                        Luca Randazzo
-                    </a>
+                    Author: <a href="https://github.com/luca-randazzo" target="_blank" class="author-text">Luca Randazzo</a>
                 </div>
             </div>
         </div>
 
-        <!-- URLs: code, docs -->
-        <div class="add-top-padding">
-            <div style="
-                    display: flex;
-                    justify-content: center;
-                    gap: 0.75em;
-                    flex-wrap: wrap;
-             ">
+        <!-- Teaser video + Intro pics -->
+        <div class="section base-row add-top-padding" style="margin-top: 20px;">
+            <p class="paragraph add-top-padding">
+                The open-source code and instructions to use the system can be found in the
                 <button type="button">
                     <i class="ti ti-brand-github"></i>
                     <span class="link-labels-text">
@@ -88,17 +82,13 @@
                             Code (GitHub repository)
                         </a>                    
                     </span>
-                </button>
-            </div>
-        </div>
+                </button>                
+            </p>
 
-        <!-- TL;DR + Teaser video + Intro pics -->
-        <div class="section base-row add-top-padding" style="margin-top: 20px;">
-            <h1 class="tldr">
-                <b>TL;DR</b>:
-                <span class="code-font">chiara-speech2text</span> is an open-source software system for speech2text in users with atypical speech
-            </h1>
-            
+            <p class="paragraph add-top-padding">
+                <span class="code-font">chiara-speech2text</span> is a set of open-source software tools to help Chiara (and other users with atypical speech) communicate digitally via ASR.<br>
+            </p>
+
             <table style="width: 100%; margin-top: 70px;">
                 <tr>
                     <td style="vertical-align: top; width: 50%;">
@@ -111,15 +101,15 @@
                     </td>
                 </tr>
             </table>
-            <p style="text-align: justify; margin-top: 10px;">
+            <p style="text-align: justify; margin-top: 10px; line-height: 1.5;">
                 In the left video, Chiara uses <span class="code-font">chiara-speech2text</span> to communicate with Rosaria, a deaf friend.
-                Before this system, Chiara could communicate with her only in person (because Rosaria must carefully watch Chiara’s lips speaking to understand). <br> 
+                Before this system, Chiara could communicate with her only in person (because Rosaria must carefully watch Chiara’s lips speaking to understand).
                 Thanks to <span class="code-font">chiara-speech2text</span>, Chiara can now communicate with people who -otherwise- she would not be able to communicate with. <br>
                 On the right, a visual summary of the system's working principle. 
             </p>
 
             <img id="main-img" src="assets/results_message.png" alt="Frontend screenshot 1" style="max-width: 1000px; margin-top: 50px;"> <br>
-            <p style="text-align: justify;">
+            <p style="text-align: justify; line-height: 1.5;">
                 A message Chiara sent through <span class="code-font">chiara-speech2text</span>'s Android keyboard. The message reads: <br>
                 <i>"il mio cuore e' contento quando tu mi scrivi (my heart is happy when you write me)"</i>. <br>
                 <span class="code-font">chiara-speech2text</span> enables Chiara to connect with people she loves and to communicate in a way that was not possible before. 
@@ -128,7 +118,7 @@
 
             <img id="main-img1" src="assets/results_message1.png" alt="Frontend screenshot 1" style="max-width: 1000px; margin-top: 50px;"> <br>
             <img id="main-img2" src="assets/results_message2.png" alt="Frontend screenshot 2" style="max-width: 1000px;"> <br>
-            <p style="text-align: justify;">
+            <p style="text-align: justify; line-height: 1.5;">
                 Some messages Chiara sent to a friend through the system, which read: <br>
                 <i>"now that I can write as well, it is easier to communicate with some who might not understand (my) voice messages"</i>. <br>
             </p>
@@ -152,16 +142,17 @@
                 The main user interface is a custom Android keyboard, which allows to transcribe user's speech seamlessly within standard communication apps - such as Whatsapp. 
                 The keyboard can transcribe speech without exiting the communication app - overcoming limitations of other ASR tools (which typically require users to exit the app, visit a web-transcription-service, and copy/paste the transcription back to the communication app). <br>
                 Beyond the keyboard, the system has several modules including functionalities to enable ASR:
-                <ul>
+                <ul style="line-height: 1.75;">
                     <li> record labeled data to fine-tune the model (i.e. record user's speech + data cleaning and labeling functionalities) </li>
                     <li> fine-tune voice-recognition models (e.g. OpenAi Whisper) to user's specific speech </li>
                     <li> serve fine-tuned models via a remote GPU-server (enabling to move inference to a remote server, for lightweight processing on the tablet) </li>
                     <li> LLM-enabled features to facilitate communication (e.g. spellchecking, provide context-aware corrections of transcripts) </li>
-                </ul>
+                </ul>               
+            </p>
+            <p class="paragraph add-top-padding">
                 This ASR model is based on <a href="https://huggingface.co/openai/whisper-large-v3-turbo">OpenAI Whisper</a>. Given enough data from final users, any language originally supported by Whisper (e.g. German, Spanish, French, etc) could be used.
-
                 Chiara sends written messages through this system, and reads the content of her screen through <a href="https://github.com/luca-randazzo/chiara-select2speak">chiara-select2speak</a> - a custom Android service that can read aloud the content of her screen. <br>
-                This process enables back and forth written communication for her. <br>      
+                This process enables back and forth written communication for her.
             </p>
 
             <h2> <b>Demos</b> </h2>
@@ -205,11 +196,54 @@
                 </video>
             </p>
 
-            <h1> <b>Open-source repo</b> </h1>
-            <p class="paragraph add-top-padding">
-                The open-source code and installation instructions can be found in the <a href="">project repository</a>.
-            </p>
 
+            <h1> <b>Screenshots, videos</b> </h2>
+            <p class="paragraph add-top-padding">
+                <h3> <b>Frontend</b> </h3>
+                <table style="margin: 0 auto;">
+                    <tr>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_frontend2.png" alt="Frontend screenshot 2" style="max-height: 500px;"> <br>
+                            The frontend allows users to upload custom words/phrases - to train models to their own chosen vocabulary 
+                        </td>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_frontend4.png" alt="Frontend screenshot 4" style="max-height: 500px;"> <br>
+                            The frontend allows to curate audio recordings: listen, edit transcripts, delete low-quality data not suitable for training
+                        </td>
+                    </tr>
+                </table>
+
+                <h3> <b>Keyboard</b> </h3>
+                <table style="margin: 0 auto;">
+                    <tr>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_keyboard4.jpg" alt="Keyboard screenshot 3" style="max-height: 500px;"> <br>
+                            The keyboard allows to substitute words with similar ones (based on Levenshtein distance), to facilitate corrections
+                        </td>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_keyboard3.jpg" alt="Keyboard screenshot 2" style="max-height: 500px;"> <br>
+                            The keyboard allows to write using normal keys
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_keyboard2.jpg" alt="Keyboard screenshot 1" style="max-height: 500px;"> <br>
+                            The keyboard supports emojis
+                        </td>
+                        <td>
+                            <img id="main-img" src="assets/screenshot_keyboard5.jpg" alt="Keyboard screenshot 4" style="max-height: 500px;"> <br>
+                            The keyboard can be configured through settings
+                        </td>
+                    </tr>
+                </table>
+
+                <h3> <b>Analysis tool</b> </h3>
+                Performance of the system (e.g. WER) can be explored via a custom analysis tool
+                <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
+                    <source id="mp4" src="assets/video_analysis-tool.mp4" type="video/mp4">
+                </video>
+            </p>
+            
             <h1> <b>Results</b> </h1>
             <p class="paragraph add-top-padding">
                 The plot below shows a comparison of Word error Rate (WER) for vanilla and fine-tuned models.
@@ -218,14 +252,13 @@
                 </div>
                 Fine-tuned models (adapted to Chiara's speech) can achieve ~25 times better WER than vanilla models.
             </p>
-
-            <!-- trasncripts comparison -->
+            <!-- transcripts comparison -->
             <p class="paragraph add-top-padding">            
                 The snippet below shows a comparison of the transcripts between fine-tuned and vanilla models, across different recordings (entries).
                 Fine-tuned models can transcribe Chiara's speech way more faithfully than vanilla models.
                 
                 Each entry:
-                <ul>
+                <ul style="line-height: 1.75;">
                     <li>is enclosed with <span class="code-font">{}</span></li>
                     <li>contains the following properties:
                         <ul>
@@ -324,53 +357,6 @@
 }
                 </pre>
             </p>
-
-            <h2> <b>Screenshots, videos</b> </h2>
-            <p class="paragraph add-top-padding">
-                <h3> <b>Frontend</b> </h3>
-                <table style="margin: 0 auto;">
-                    <tr>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_frontend2.png" alt="Frontend screenshot 2" style="max-height: 500px;"> <br>
-                            The frontend allows users to upload custom words/phrases - to train models to their own chosen vocabulary 
-                        </td>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_frontend4.png" alt="Frontend screenshot 4" style="max-height: 500px;"> <br>
-                            The frontend allows to curate audio recordings: listen, edit transcripts, delete low-quality data not suitable for training
-                        </td>
-                    </tr>
-                </table>
-
-                <h3> <b>Keyboard</b> </h3>
-                <table style="margin: 0 auto;">
-                    <tr>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_keyboard4.jpg" alt="Keyboard screenshot 3" style="max-height: 500px;"> <br>
-                            The keyboard allows to substitute words with similar ones (based on Levenshtein distance), to facilitate corrections
-                        </td>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_keyboard3.jpg" alt="Keyboard screenshot 2" style="max-height: 500px;"> <br>
-                            The keyboard allows to write using normal keys
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_keyboard2.jpg" alt="Keyboard screenshot 1" style="max-height: 500px;"> <br>
-                            The keyboard supports emojis
-                        </td>
-                        <td>
-                            <img id="main-img" src="assets/screenshot_keyboard5.jpg" alt="Keyboard screenshot 4" style="max-height: 500px;"> <br>
-                            The keyboard can be configured through settings
-                        </td>
-                    </tr>
-                </table>
-
-                <h3> <b>Analysis tool</b> </h3>
-                Performance of the system (e.g. WER) can be explored via a custom analysis tool
-                <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
-                    <source id="mp4" src="assets/video_analysis-tool.mp4" type="video/mp4">
-                </video>
-            </p>            
         </div>
     </div>
 
