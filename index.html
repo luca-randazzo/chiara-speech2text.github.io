@@ -127,33 +127,32 @@
 
         <!-- Main text -->
         <div class="desktop-text-panel" style="margin-top: 100px;">
-            <h1> <b>Problem statement</b> </h1>
+            <h1> <b>Problem</b> </h1>
             <p class="paragraph add-top-padding">
                 Chiara is a very active girl with a passion for chatting and making new friends :) <br>
-                Unfortunately, due to cerebral palsy, she suffers from dysarthria and atypical speech.
-                She has difficulties with articulation (pronunciation), fluency (speech rate and rhythm), abnormal tone and echolalia (repetitions). <br>
-                Chiara is not able to write nor read, hence she only communicates via speech. For digital communication, she uses voice messages on her tablet, via Whatsapp. 
-                However -due to her dysarthria- people have quite some difficulties understanding her voice messages. <br>
-                Due to this, she has limited possibilities to communicate and interact, which poses a great limit to her social interactions.
+                Unfortunately, due to cerebral palsy, she suffers from dysarthria and atypical speech: 
+                she has difficulties with articulation (pronunciation), fluency (speech rate and rhythm), abnormal tone, and echolalia (repetitions). <br>
+                Chiara is not able to write nor read, hence she can only communicate via speech (e.g. voice messages through her tablet, via Whatsapp). 
+                However -due to her dysarthria- people have quite some difficulties understanding her voice messages, and existing speech recognition systems perform very poorly in recognizing her speech. <br>
+                Due to this, her possibilities to communicate and interact are limited, which greatly limits her social interactions.
             </p>
 
             <h1> <b>Solution</b> </h1>
             <p class="paragraph add-top-padding">
                 <span class="code-font">chiara-speech2text</span> is a set of open-source software tools to help Chiara (and other users with atypical speech) communicate digitally via ASR.<br>
-                The main user interface is a custom Android keyboard, which allows to transcribe user's speech seamlessly within standard communication apps - such as Whatsapp. 
-                The keyboard can transcribe speech without exiting the communication app - overcoming limitations of other ASR tools (which typically require users to exit the app, visit a web-transcription-service, and copy/paste the transcription back to the communication app). <br>
-                Beyond the keyboard, the system has several modules including functionalities to enable ASR:
+                A custom Android keyboard acts as main user interface, enabling to transcribe user's speech seamlessly within standard communication apps - such as Whatsapp. 
+                The keyboard allows to transcribe speech without exiting the communication app - to overcome limitations of other ASR tools (which require users to exit the app, use an external web-transcription-service, and copy/paste the transcription back to the communication app). <br>
+                Beyond the keyboard, the system has several modules to enable ASR, including functionalities to:
                 <ul style="line-height: 1.75;">
-                    <li> record labeled data to fine-tune the model (i.e. record user's speech + data cleaning and labeling functionalities) </li>
+                    <li> record and curate data (i.e. record labeled user's speech, clean and label data) useable for models fine-tuning </li>
                     <li> fine-tune voice-recognition models (e.g. OpenAi Whisper) to user's specific speech </li>
-                    <li> serve fine-tuned models via a remote GPU-server (enabling to move inference to a remote server, for lightweight processing on the tablet) </li>
-                    <li> LLM-enabled features to facilitate communication (e.g. spellchecking, provide context-aware corrections of transcripts) </li>
+                    <li> perform transcription on a remote server (for lightweight processing on users' device e.g. tablet) </li>
+                    <li> spellcheck and provide context-aware corrections of transcripts via remote LLMs </li>
                 </ul>               
             </p>
             <p class="paragraph add-top-padding">
-                This ASR model is based on OpenAI Whisper. Given enough data from final users, any language originally supported by Whisper (e.g. German, Spanish, French, etc) could be used.
-                Chiara sends written messages through this system, and reads the content of her screen through <a href="https://github.com/luca-randazzo/chiara-select2speak"><span class="code-font">chiara-select2speak</span></a> - a custom Android service that can read aloud the content of her screen. <br>
-                This process enables back and forth written communication for her.
+                To enable back and forth written communication, Chiara sends written messages through this system, and listens to content of her screen via <a href="https://github.com/luca-randazzo/chiara-select2speak"><span class="code-font">chiara-select2speak</span></a> <br>
+                NOTE: This project uses OpenAI Whisper models for speech recognition. Given enough data from end-users, any language supported by Whisper (e.g. German, Spanish, French, etc) could be used.
             </p>
 
             <h2> <b>Demos</b> </h2>
