@@ -151,36 +151,41 @@
                 through her tablet, via Whatsapp).
                 However -due to her dysarthria- people have quite some difficulties understanding her voice messages,
                 and existing speech recognition systems perform very poorly in recognizing her speech. <br>
-                Due to this, her possibilities to communicate and interact are limited, which greatly limits her social
-                interactions.
+                Due to this, <strong>her possibilities to communicate and interact with peers are limited
+                - which greatly limits her social interactions</strong>.
             </p>
 
             <h1> <b>This project</b> </h1>
             <p class="paragraph add-top-padding">
-                <span class="code-font">chiara-speech2text</span> is a set of open-source software tools to help Chiara
-                (and other users with atypical speech) communicate digitally via ASR.<br>
+                <strong><span class="code-font">chiara-speech2text</span></strong> is an open-source software system to
+                <strong>help Chiara (and other users with atypical speech) communicate digitally via ASR</strong>.<br>
                 A custom Android keyboard acts as main user interface, enabling to transcribe user's speech seamlessly
                 within standard communication apps - such as Whatsapp.
                 The keyboard allows to transcribe speech without exiting the communication app - to overcome limitations
                 of other ASR tools (which require users to exit the app, use an external web-transcription-service, and
                 copy/paste the transcription back to the communication app). <br>
                 Beyond the keyboard, the system has several modules to enable ASR, including functionalities to:
-            <ul style="line-height: 1.75;">
-                <li> record and curate data (i.e. record labeled user's speech, clean and label data) useable for models
-                    fine-tuning </li>
-                <li> fine-tune voice-recognition models (e.g. OpenAi Whisper) to user's specific speech </li>
-                <li> perform transcription on a remote server (for lightweight processing on users' device e.g. tablet)
-                </li>
-                <li> spellcheck and provide context-aware corrections of transcripts via remote LLMs </li>
-            </ul>
+                <ul style="line-height: 1.75;">
+                    <li> record and curate data (i.e. record labeled user's speech, clean and label data) useable for models
+                        fine-tuning </li>
+                    <li> fine-tune voice-recognition models (e.g. OpenAI Whisper) to user's specific speech </li>
+                    <li> perform transcription on a remote server (for lightweight processing on users' device e.g. tablet)
+                    </li>
+                    <li> spellcheck and provide context-aware corrections of transcripts via remote LLMs </li>
+                </ul>
             </p>
             <p class="paragraph add-top-padding">
-                To enable back and forth written communication, Chiara sends written messages through this system, and
-                listens to content of her screen via <a
-                    href="https://github.com/luca-randazzo/chiara-select2speak"><span
-                        class="code-font">chiara-select2speak</span></a> <br>
-                NOTE: This project uses OpenAI Whisper models for speech recognition. Given enough data from end-users,
-                any language supported by Whisper (e.g. German, Spanish, French, etc) could be used.
+                For back and forth written communication, Chiara:
+                <ul style="line-height: 1.75;">
+                    <li> [speech2text] writes messages through this system</li>
+                    <li> [text2speech] reads content of her screen through another custom software tool
+                        (
+                        <a href="https://github.com/luca-randazzo/chiara-select2speak"><span class="code-font">chiara-select2speak</span></a>
+                        )
+                    </li>
+                </ul>
+
+                NOTE: Given enough data from end-users, any language supported by Whisper (e.g. German, French, etc) can be used.
             </p>
 
             <h2> <b>Demos</b> </h2>
@@ -263,7 +268,7 @@
                     </tr>
                 </table>
 
-                <h3> <b>Analysis tool</b> </h3>
+                <h3> <b>Models-evaluator tool</b> </h3>
                 Performance of the fine-tuned models (e.g. WER, transcription accuracy for specific words) can be explored via a custom analysis tool
                 <video style="max-width: 1000px; display: block; margin: 0 auto;" autobuffer controls>
                     <source id="mp4" src="assets/video_analysis-tool.mp4" type="video/mp4">
