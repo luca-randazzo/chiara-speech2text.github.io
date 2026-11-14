@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keyboard Audio Stats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { color-scheme: light dark; --text: #202533; --muted: #737b8c; --border: #d7dbe4; --background: #fff; --panel: #f5f7fa; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 2rem 1rem; background: var(--background); color: var(--text); font-family: "Google Sans", sans-serif; }
+        main { max-width: 900px; margin: 0 auto; }
+        h1 { margin: 0 0 1rem; font-size: 1.3rem; font-weight: 650; }
+        .report-row { margin-bottom: .85rem; padding: 1.25rem 1rem; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); }
+        .report-row h2 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 600; text-align: center; }
+        .metric { display: flex; align-items: baseline; justify-content: center; gap: .75rem; }
+        .big-number { font-size: 3.25rem; font-weight: 750; line-height: 1; }
+        .metric-unit, .note { color: var(--muted); }
+        .chart-wrap { position: relative; height: 230px; }
+        .chart-wrap--pie { height: 300px; }
+        .note { margin: .65rem 0 0; font-size: .85rem; text-align: center; }
+        @media (max-width: 600px) { body { padding: 1.25rem .5rem; } .report-row { padding: 1rem .5rem; } .chart-wrap { height: 210px; } .chart-wrap--pie { height: 270px; } }
+        @media (prefers-color-scheme: dark) { :root { --text: #f3f4f6; --muted: #8b8fa8; --border: #30364d; --background: #111522; --panel: #191e2c; } }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Keyboard Audio Stats</h1>
+        <section class="report-row" aria-labelledby="keyboard-days-title">
+            <h2 id="keyboard-days-title">Keyboard use</h2>
+            <div class="metric"><strong class="big-number">180</strong><span class="metric-unit"> days keyboard was actively used</span></div>
+        </section>
+        <section class="report-row" aria-labelledby="duration-title">
+            <h2 id="duration-title">Audios sent through keyboard</h2>
+            <div class="chart-wrap"><canvas id="duration-chart" role="img" aria-label="Average daily audio duration with standard deviation"></canvas></div>
+            <p class="note">Bar shows the mean daily audio duration of data sent through the keyboard; whiskers show plus or minus one population standard deviation</p>
+        </section>
+        <section class="report-row" aria-labelledby="validation-title">
+            <h2 id="validation-title">User-accepted transcripts</h2>
+            <div class="chart-wrap"><canvas id="validation-chart" role="img" aria-label="Average ratio of transcripts accepted by the user, per day"></canvas></div>
+            <p class="note" id="validation-note"></p>
+        </section>
+        <section class="report-row" aria-labelledby="labeled-hours-title">
+            <h2 id="labeled-hours-title">Available data</h2>
+            <div class="chart-wrap chart-wrap--pie"><canvas id="labeled-hours-chart" role="img" aria-label="Reviewed audio hours compared with all available audio hours"></canvas></div>
+            <p class="note" id="labeled-hours-note"></p>
+        </section>
+    </main>
+    <script>
+        const stats = {"durationMeanMinutes": 9.44640685185186, "durationStddevMinutes": 13.04360183073298, "validationRatio": 0.6163400031844182, "validationDayCount": 55, "validatedFrom": "2026-06-01", "labeledHours": 23.49214555555635, "totalHours": 55.10837055554721, "unlabeledHours": 31.616224999990862};
+        const palette = { text: getComputedStyle(document.documentElement).getPropertyValue('--text').trim(), muted: getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(), green: '#10b981', blue: '#38bdf8', sunflowerGold: '#f7b32b', remaining: '#3a3f5c' };
+        Chart.defaults.font.family = '"Google Sans", sans-serif';
+        Chart.defaults.color = palette.muted;
+
+        const standardDeviationWhiskers = {
+            id: 'standardDeviationWhiskers',
+            afterDatasetsDraw(chart, _args, options) {
+                const bar = chart.getDatasetMeta(0).data[0];
+                if (!bar) return;
+                const scale = chart.scales.x;
+                const low = scale.getPixelForValue(Math.max(0, options.mean - options.deviation));
+                const high = scale.getPixelForValue(options.mean + options.deviation);
+                const y = bar.y;
+                const cap = 7;
+                const ctx = chart.ctx;
+                ctx.save();
+                ctx.strokeStyle = palette.text;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(low, y); ctx.lineTo(high, y);
+                ctx.moveTo(low, y - cap); ctx.lineTo(low, y + cap);
+                ctx.moveTo(high, y - cap); ctx.lineTo(high, y + cap);
+                ctx.stroke();
+                ctx.restore();
+            },
+        };
+
+        const centerLabel = {
+            id: 'centerLabel',
+            afterDraw(chart, _args, options) {
+                if (!chart.chartArea) return;
+                const x = (chart.chartArea.left + chart.chartArea.right) / 2;
+                const y = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+                const ctx = chart.ctx;
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.fillStyle = palette.text;
+                ctx.font = '700 30px "Google Sans", sans-serif';
+                ctx.fillText(options.value, x, y);
+                ctx.fillStyle = palette.muted;
+                ctx.font = '600 11px "Google Sans", sans-serif';
+                ctx.fillText(options.label, x, y + 22);
+                ctx.restore();
+            },
+        };
+
+        const meanMinutes = stats.durationMeanMinutes;
+        const deviationMinutes = stats.durationStddevMinutes;
+        new Chart(document.getElementById('duration-chart'), {
+            type: 'bar',
+            data: {
+                labels: ['Mean per active day'],
+                datasets: [{ data: [meanMinutes], backgroundColor: palette.green, borderRadius: 3, barThickness: 48 }],
+            },
+            plugins: [standardDeviationWhiskers],
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: () => `Mean ${meanMinutes.toFixed(2)} min ± ${deviationMinutes.toFixed(2)} min SD` } },
+                    standardDeviationWhiskers: { mean: meanMinutes, deviation: deviationMinutes },
+                },
+                scales: {
+                    x: { beginAtZero: true, suggestedMax: Math.max(1, meanMinutes + deviationMinutes * 1.2), title: { display: true, text: 'Minutes per day' } },
+                    y: { grid: { display: false } },
+                },
+            },
+        });
+
+        const ratio = stats.validationRatio;
+        const validationValue = ratio === null ? 0 : ratio * 100;
+        new Chart(document.getElementById('validation-chart'), {
+            type: 'doughnut',
+            data: { labels: ['Validated', 'Not validated'], datasets: [{ data: [validationValue, 100 - validationValue], backgroundColor: [palette.blue, palette.remaining], borderWidth: 0, hoverOffset: 4 }] },
+            plugins: [centerLabel],
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '68%',
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: { callbacks: { label: (item) => `${item.label}: ${item.raw.toFixed(1)}%` } },
+                    centerLabel: { value: ratio === null ? '—' : `${validationValue.toFixed(1)}%`, label: 'VALIDATED' },
+                },
+            },
+        });
+        document.getElementById('validation-note').textContent = ratio === null
+            ? `No keyboard data from ${stats.validatedFrom}.`
+            : `Doughnut shows mean, across active days, of the ratio of accepted transcripts`;
+
+        new Chart(document.getElementById('labeled-hours-chart'), {
+            type: 'pie',
+            data: {
+                labels: ['Reviewed / labeled', 'Not reviewed'],
+                datasets: [{ data: [stats.labeledHours, stats.unlabeledHours], backgroundColor: [palette.sunflowerGold, palette.remaining], borderColor: getComputedStyle(document.documentElement).getPropertyValue('--background').trim(), borderWidth: 2, hoverOffset: 5 }],
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: { callbacks: { label: (item) => `${item.label}: ${item.raw.toFixed(2)} hours` } },
+                },
+            },
+        });
+        document.getElementById('labeled-hours-note').textContent = `${stats.labeledHours.toFixed(2)} reviewed / labeled hours out of ${stats.totalHours.toFixed(2)} available hours across database folders`;
+    </script>
+</body>
+</html>
